@@ -6,4 +6,6 @@ export type RootStackParamList = {
      *  both of type string. This allows the ViewDetails screen to correctly expect the parameters
      */
     ViewDetails: { Name : string; Surname: string; };
+
+    ListSkills: undefined;
 };

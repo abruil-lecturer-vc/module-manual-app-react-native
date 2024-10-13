@@ -65,6 +65,8 @@ export default function HomeScreen() {
                                     setError(true); 
                                 }
                     }} />
+
+                    <Button title="List Skills" onPress={() => { navigation.navigate('ListSkills')}} />
                 </ScrollView>
             </SafeAreaView>
         </View>
