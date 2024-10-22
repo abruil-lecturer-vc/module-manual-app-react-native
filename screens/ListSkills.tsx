@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, TextInput, Button, SafeAreaView, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, Button, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
+import { styles } from './Styles';
 
 export default function ListSkills() { 
     // Initialise Skills as an array of strings
     const [Skills, setSkills] = useState<string[]>([]);
     const [txtSkill, setSkill] = useState('');
+
+    const removeSkillHandler = (index: number) => { 
+        setSkills((currentSkills) => currentSkills.filter((skill, i) => i !== index)); 
+    };
 
     // Function to render the list of skills
     const renderSkills = () => { 
@@ -13,9 +18,17 @@ export default function ListSkills() {
         //  for loop is used to iterate over the array of skills (Skills[]) 
         // and create a list of <Text> components to display each skill on the screen
         for (let i = 0; i < Skills.length; i++) { 
-            arrOutput.push(
-                <Text key={i} style={styles.skillText}>{Skills[i]}</Text>
-            ); 
+            // arrOutput.push(
+            //     <Text key={i} style={styles.skillText}>{Skills[i]}</Text>
+            // ); 
+
+            arrOutput.push( 
+                <View key={i} style={styles.inputContainer}> 
+                    <Text style={styles.skillText}> {Skills[i]}</Text> 
+                    <TouchableOpacity onPress={() => removeSkillHandler(i)} style={styles.deleteButton}> 
+                        <Text style={styles.deleteButtonText}>Remove</Text> 
+                    </TouchableOpacity> 
+                </View> );
         }
         
         return arrOutput; // Return the array of Text elements
@@ -55,50 +68,4 @@ export default function ListSkills() {
     ); 
 };
 
-const styles = StyleSheet.create({ 
-    mainPicture: {
-        paddingTop: 40,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    welcomeText: {
-        paddingTop: 40,
-        color: 'purple',
-        fontWeight: 'bold',
-        fontSize: 28,
-        textAlign: 'center'
-    },
-    BannerImage: { 
-        height: 350, 
-        alignContent: 'center', 
-    }, 
-    inputContainer: { 
-        flexDirection:'row', 
-        justifyContent: 'space-between', 
-        alignItems:'center', 
-        marginBottom:24, 
-        borderBottomWidth:1, 
-        borderBottomColor:'#cccccc' 
-    }, 
-    textInput: { 
-        borderWidth:1, 
-        borderColor:'#cccccc', 
-        width:'70%', 
-        margin:8, 
-        padding:8, 
-    }, 
-    appContainer: { 
-        flex:1, 
-        padding:50, 
-        paddingHorizontal:16, 
-    }, 
-    skillContainer: { 
-        marginTop: 20,
-    }, 
-    skillText: { 
-        fontSize: 15, 
-        marginVertical: 5, 
-        borderBottomColor: '#000000', 
-        borderBottomWidth: 0.5, 
-    },
-});
+

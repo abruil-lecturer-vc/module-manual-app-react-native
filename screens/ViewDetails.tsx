@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Text, View, StyleSheet, Image, Button } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import { RadioButton } from 'react-native-paper';
+import { styles } from './Styles';
 
 export default function ViewDetailsScreen() { 
 
@@ -114,49 +115,3 @@ export default function ViewDetailsScreen() {
     </View>
     ); 
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    RadioContainer: { 
-        flex: 0, 
-        backgroundColor: '#F5F5F5', 
-        justifyContent: 'center', 
-        alignItems: 'center', 
-    }, 
-    radioGroup: { 
-        flexDirection: 'row', 
-        alignItems: 'center', 
-        justifyContent: 'space-around', 
-        marginTop: 20, 
-        borderRadius: 8, 
-        backgroundColor: 'white', 
-        padding: 16, 
-        elevation: 4, 
-        shadowColor: '#000', 
-        shadowOffset: { 
-            width: 0, 
-            height: 2, 
-        }, 
-        shadowOpacity: 0.25, 
-        shadowRadius: 3.84, 
-    }, 
-    radioButton: { 
-        flexDirection: 'row', 
-        alignItems: 'center', 
-    }, 
-    radioLabel: { 
-        marginLeft: 8, 
-        fontSize: 16, 
-        color: '#333', 
-    },
-    ViewImage: { 
-        width: 350, 
-        height: 350, 
-        alignContent: 'center' 
-    }
-});

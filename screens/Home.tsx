@@ -4,10 +4,16 @@ import { RootStackParamList } from './RootStackParams';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import { styles } from './Styles';
 
 type homeScreenProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
+function sayHello() {
+    console.log('Hello World');
+}
+
 export default function HomeScreen() {
+    sayHello();
 
     /** ------------------------- Declaring consts ---------------------------------
      *  Declaring state variables used to store name & surname,
@@ -99,60 +105,3 @@ function isEmpty (value: string) {
         (value.constructor === Object && Object.keys(value).length === 0) 
     ) 
 };
-
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    mainPicture: {
-        paddingTop: 40,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    welcomeText: {
-        paddingTop: 40,
-        color: 'purple',
-        fontWeight: 'bold',
-        fontSize: 28,
-        textAlign: 'center'
-    },
-    ImageSize: {
-        width: 350,
-        height: 350
-    },
-    HeadingText: {
-        color: 'black',
-        fontSize: 18,
-        fontWeight: 'bold',
-        paddingBottom: 6,
-
-    },
-    InputBoxes: {
-        paddingBottom: 10,
-        paddingStart: 10,
-        fontSize: 18,
-    },
-    line: {
-        width: '100%',
-        height: 1,
-        backgroundColor: 'black',
-    },
-    InputFlex: {
-        flexDirection: 'row',
-        marginTop: 30,
-        justifyContent: 'space-evenly'
-    },
-    red: { 
-        color: 'red', 
-        fontWeight: 'bold', 
-        fontSize: 26, 
-        textAlign: 'center' 
-    },
-    blank: { 
-        fontSize: 0, 
-    }
-});
